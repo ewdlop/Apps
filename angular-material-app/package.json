@@ -6,7 +6,15 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "playwright": "playwright test",
+    "playwright:ui": "playwright test --ui",
+    "playwright:headed": "playwright test --headed",
+    "playwright:debug": "playwright test --debug",
+    "playwright:report": "playwright show-report"
   },
   "private": true,
   "dependencies": {
@@ -27,13 +35,18 @@
     "@angular/build": "^20.0.0",
     "@angular/cli": "^20.0.0",
     "@angular/compiler-cli": "^20.0.0",
+    "@cypress/schematic": "^3.0.0",
+    "@playwright/test": "^1.52.0",
     "@types/jasmine": "~5.1.0",
+    "@types/node": "^22.15.29",
+    "cypress": "^14.4.1",
     "jasmine-core": "~5.7.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "playwright": "^1.52.0",
     "typescript": "~5.8.2"
   }
 }
