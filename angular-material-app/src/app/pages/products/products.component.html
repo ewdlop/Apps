@@ -1,0 +1,99 @@
+<div class="products-container">
+  <div class="page-header">
+    <h1>Products</h1>
+    <p>Discover our collection of premium development tools and templates</p>
+  </div>
+
+  <!-- Filters Section -->
+  <mat-card class="filters-card">
+    <mat-card-content>
+      <div class="filters-row">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Search products</mat-label>
+          <input matInput [(ngModel)]="searchQuery" placeholder="Search by name or description">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="category-field">
+          <mat-label>Category</mat-label>
+          <mat-select [(ngModel)]="selectedCategory">
+            <mat-option value="all">All Categories</mat-option>
+            <mat-option value="web">Web Development</mat-option>
+            <mat-option value="mobile">Mobile Apps</mat-option>
+            <mat-option value="desktop">Desktop Apps</mat-option>
+            <mat-option value="api">APIs & Backend</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Results Count -->
+  <div class="results-info">
+    <p>{{ filteredProducts.length }} product{{ filteredProducts.length !== 1 ? 's' : '' }} found</p>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="products-grid">
+    <mat-card *ngFor="let product of filteredProducts" class="product-card">
+      <div class="product-image">
+        <span class="product-emoji">{{ product.image }}</span>
+      </div>
+      
+      <mat-card-header>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>{{ product.description }}</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <!-- Rating -->
+        <div class="rating-section">
+          <div class="stars">
+            <mat-icon *ngFor="let filled of getStarArray(product.rating)" 
+                     [class.filled]="filled">star</mat-icon>
+          </div>
+          <span class="rating-text">{{ product.rating }} ({{ product.reviews }} reviews)</span>
+        </div>
+
+        <!-- Tags -->
+        <div class="tags-section">
+          <mat-chip-set>
+            <mat-chip *ngFor="let tag of product.tags">{{ tag }}</mat-chip>
+          </mat-chip-set>
+        </div>
+
+        <!-- Price -->
+        <div class="price-section">
+          <span class="price">{{ product.price }}</span>
+        </div>
+      </mat-card-content>
+      
+      <mat-card-actions>
+        <button mat-button>
+          <mat-icon>visibility</mat-icon>
+          Preview
+        </button>
+        <button mat-raised-button color="primary">
+          <mat-icon>shopping_cart</mat-icon>
+          Buy Now
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <!-- No Results -->
+  <div *ngIf="filteredProducts.length === 0" class="no-results">
+    <mat-card>
+      <mat-card-content>
+        <div class="no-results-content">
+          <mat-icon>search_off</mat-icon>
+          <h3>No products found</h3>
+          <p>Try adjusting your search criteria or browse all categories.</p>
+          <button mat-raised-button color="primary" (click)="searchQuery = ''; selectedCategory = 'all'">
+            Clear Filters
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div> 

@@ -162,3 +162,107 @@ mat-toolbar {
     transform: translateY(0);
   }
 }
+
+.app-container {
+  height: 100vh;
+  width: 100%;
+}
+
+.app-sidenav {
+  width: 280px;
+  background: rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  
+  .sidenav-header {
+    padding: 20px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #3f51b5;
+    }
+  }
+  
+  mat-nav-list {
+    padding-top: 8px;
+    
+    a[mat-list-item] {
+      margin: 4px 8px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+      
+      &.active-link {
+        background: rgba(63, 81, 181, 0.2);
+        color: #3f51b5;
+        
+        mat-icon {
+          color: #3f51b5;
+        }
+      }
+      
+      mat-icon {
+        margin-right: 12px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  
+  .menu-button {
+    display: none;
+  }
+  
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.page-content {
+  flex: 1;
+  overflow-y: auto;
+  background: #303030;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .app-sidenav {
+    width: 260px;
+  }
+  
+  .app-toolbar .menu-button {
+    display: block;
+  }
+  
+  .app-sidenav {
+    position: absolute;
+    z-index: 1001;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-sidenav {
+    width: 240px;
+  }
+  
+  .sidenav-header h2 {
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,219 @@
+<div class="settings-container">
+  <div class="page-header">
+    <h1>Settings</h1>
+    <p>Configure your application preferences and account settings</p>
+  </div>
+
+  <div class="settings-grid">
+    <!-- General Settings -->
+    <mat-card class="settings-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>settings</mat-icon>
+          General
+        </mat-card-title>
+        <mat-card-subtitle>Basic application settings</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="setting-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Language</mat-label>
+            <mat-select [(ngModel)]="language">
+              <mat-option *ngFor="let lang of languages" [value]="lang.value">
+                {{ lang.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Timezone</mat-label>
+            <mat-select [(ngModel)]="timezone">
+              <mat-option *ngFor="let tz of timezones" [value]="tz.value">
+                {{ tz.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="setting-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Theme</mat-label>
+            <mat-select [(ngModel)]="theme">
+              <mat-option *ngFor="let t of themes" [value]="t.value">
+                {{ t.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="toggle-setting">
+          <div class="toggle-info">
+            <span class="toggle-label">Auto-save</span>
+            <span class="toggle-description">Automatically save changes</span>
+          </div>
+          <mat-slide-toggle [(ngModel)]="autoSave"></mat-slide-toggle>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Display Settings -->
+    <mat-card class="settings-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>display_settings</mat-icon>
+          Display
+        </mat-card-title>
+        <mat-card-subtitle>Customize your viewing experience</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="slider-setting">
+          <span class="slider-label">Font Size: {{ fontSize }}px</span>
+          <mat-slider min="12" max="20" step="1" [(ngModel)]="fontSize">
+            <input matSliderThumb>
+          </mat-slider>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="toggle-setting">
+          <div class="toggle-info">
+            <span class="toggle-label">Show Animations</span>
+            <span class="toggle-description">Enable UI animations and transitions</span>
+          </div>
+          <mat-slide-toggle [(ngModel)]="showAnimations"></mat-slide-toggle>
+        </div>
+
+        <div class="toggle-setting">
+          <div class="toggle-info">
+            <span class="toggle-label">Compact Mode</span>
+            <span class="toggle-description">Use smaller spacing and components</span>
+          </div>
+          <mat-slide-toggle [(ngModel)]="compactMode"></mat-slide-toggle>
+        </div>
+
+        <div class="toggle-setting">
+          <div class="toggle-info">
+            <span class="toggle-label">Show Tooltips</span>
+            <span class="toggle-description">Display helpful tooltips on hover</span>
+          </div>
+          <mat-slide-toggle [(ngModel)]="showTooltips"></mat-slide-toggle>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Privacy Settings -->
+    <mat-card class="settings-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>privacy_tip</mat-icon>
+          Privacy
+        </mat-card-title>
+        <mat-card-subtitle>Control your data and privacy preferences</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="toggle-setting">
+          <div class="toggle-info">
+            <span class="toggle-label">Analytics</span>
+            <span class="toggle-description">Help improve the app by sharing usage data</span>
+          </div>
+          <mat-slide-toggle [(ngModel)]="analytics"></mat-slide-toggle>
+        </div>
+
+        <div class="toggle-setting">
+          <div class="toggle-info">
+            <span class="toggle-label">Cookies</span>
+            <span class="toggle-description">Allow cookies for better experience</span>
+          </div>
+          <mat-slide-toggle [(ngModel)]="cookies"></mat-slide-toggle>
+        </div>
+
+        <div class="toggle-setting">
+          <div class="toggle-info">
+            <span class="toggle-label">Personalized Ads</span>
+            <span class="toggle-description">Show ads based on your interests</span>
+          </div>
+          <mat-slide-toggle [(ngModel)]="personalizedAds"></mat-slide-toggle>
+        </div>
+
+        <div class="toggle-setting">
+          <div class="toggle-info">
+            <span class="toggle-label">Data Sharing</span>
+            <span class="toggle-description">Share anonymized data with partners</span>
+          </div>
+          <mat-slide-toggle [(ngModel)]="dataSharing"></mat-slide-toggle>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Notification Settings -->
+    <mat-card class="settings-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>notifications</mat-icon>
+          Notifications
+        </mat-card-title>
+        <mat-card-subtitle>Manage how you receive notifications</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="toggle-setting">
+          <div class="toggle-info">
+            <span class="toggle-label">Email Notifications</span>
+            <span class="toggle-description">Receive notifications via email</span>
+          </div>
+          <mat-slide-toggle [(ngModel)]="emailNotifications"></mat-slide-toggle>
+        </div>
+
+        <div class="toggle-setting">
+          <div class="toggle-info">
+            <span class="toggle-label">Push Notifications</span>
+            <span class="toggle-description">Receive browser push notifications</span>
+          </div>
+          <mat-slide-toggle [(ngModel)]="pushNotifications"></mat-slide-toggle>
+        </div>
+
+        <div class="toggle-setting">
+          <div class="toggle-info">
+            <span class="toggle-label">Sound</span>
+            <span class="toggle-description">Play sound for notifications</span>
+          </div>
+          <mat-slide-toggle [(ngModel)]="soundEnabled"></mat-slide-toggle>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="setting-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Notification Frequency</mat-label>
+            <mat-select [(ngModel)]="notificationFrequency">
+              <mat-option *ngFor="let freq of notificationFrequencies" [value]="freq.value">
+                {{ freq.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Action Buttons -->
+  <mat-card class="actions-card">
+    <mat-card-content>
+      <div class="actions-row">
+        <button mat-raised-button color="primary" (click)="saveSettings()">
+          <mat-icon>save</mat-icon>
+          Save Settings
+        </button>
+        
+        <button mat-stroked-button (click)="resetSettings()">
+          <mat-icon>refresh</mat-icon>
+          Reset to Defaults
+        </button>
+        
+        <button mat-stroked-button (click)="exportSettings()">
+          <mat-icon>download</mat-icon>
+          Export Settings
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div> 

@@ -1,0 +1,116 @@
+<!-- Welcome Section -->
+<div class="page-container">
+  <mat-card class="welcome-card">
+    <mat-card-header>
+      <mat-card-title>Welcome to Angular Material</mat-card-title>
+      <mat-card-subtitle>Build beautiful, usable products faster</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Angular Material brings the best of Google's Material Design to Angular applications.
+        This app showcases various Material components working together in a modern, responsive layout.
+      </p>
+      
+      <!-- Technology Chips -->
+      <div class="tech-chips">
+        <mat-chip-set>
+          <mat-chip *ngFor="let tech of technologies">
+            {{ tech }}
+          </mat-chip>
+        </mat-chip-set>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Get Started</button>
+      <button mat-button>Learn More</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <!-- Tabs Section -->
+  <mat-tab-group class="demo-tabs">
+    <mat-tab label="Features">
+      <div class="card-container">
+        <mat-card *ngFor="let feature of features" class="feature-card">
+          <mat-card-header>
+            <mat-icon mat-card-avatar>{{ feature.icon }}</mat-icon>
+            <mat-card-title>{{ feature.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ feature.description }}</p>
+            <div class="progress-section">
+              <span class="progress-label">Implementation Progress</span>
+              <mat-progress-bar mode="determinate" [value]="feature.progress"></mat-progress-bar>
+              <span class="progress-value">{{ feature.progress }}%</span>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>EXPLORE</button>
+            <button mat-button>DOCS</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="Components">
+      <div class="components-showcase">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Available Components</mat-card-title>
+            <mat-card-subtitle>Material Design components ready to use</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="component-grid">
+              <div class="component-item">
+                <mat-icon>view_module</mat-icon>
+                <span>Cards</span>
+              </div>
+              <div class="component-item">
+                <mat-icon>smart_button</mat-icon>
+                <span>Buttons</span>
+              </div>
+              <div class="component-item">
+                <mat-icon>tab</mat-icon>
+                <span>Tabs</span>
+              </div>
+              <div class="component-item">
+                <mat-icon>menu</mat-icon>
+                <span>Toolbar</span>
+              </div>
+              <div class="component-item">
+                <mat-icon>linear_scale</mat-icon>
+                <span>Progress</span>
+              </div>
+              <div class="component-item">
+                <mat-icon>label</mat-icon>
+                <span>Chips</span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="About">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>About This App</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            This Angular Material application demonstrates the power and beauty of Material Design components.
+            It's built with modern Angular architecture and best practices.
+          </p>
+          <h3>Key Features:</h3>
+          <ul>
+            <li>Responsive design that works on all devices</li>
+            <li>Dark theme with beautiful color palettes</li>
+            <li>Accessible components following WCAG guidelines</li>
+            <li>Modern Angular with standalone components</li>
+            <li>TypeScript for type safety</li>
+            <li>SCSS for advanced styling</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</div> 
